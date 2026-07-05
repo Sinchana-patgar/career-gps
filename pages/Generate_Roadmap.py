@@ -53,7 +53,8 @@ Avoid generic or robotic tone. Be helpful, uplifting, and practical.
         messages=[
             {"role": "system", "content": "You are a professional career coach helping students build personalized learning roadmaps."},
             {"role": "user", "content": prompt}
-        ]
+        ],
+        timeout=30
     )
     return response.choices[0].message.content
 
