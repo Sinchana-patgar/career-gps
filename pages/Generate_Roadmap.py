@@ -38,7 +38,7 @@ When suggesting resources, only include links from verified websites like:
 If unsure of the exact link, only mention the course name and platform.
 Avoid making up URLs.
 
-📍 At the end, include a **Final Milestone** titled
+At the end, include a **Final Milestone** titled
 - This should feel like a personal note to the student.
 - Explain what they've accomplished and how they can now apply for jobs, internships, or freelance gigs.
 - Be supportive and motivating, as if you're celebrating their journey and encouraging them to take the leap.
@@ -55,14 +55,12 @@ Avoid generic or robotic tone. Be helpful, uplifting, and practical.
     return response.choices[0].message.content
 
 
-# --- Streamlit UI Starts Here ---
 st.set_page_config(page_title="Career GPS", layout="wide")
 
 if not st.session_state.get('logged_in'):
     st.warning("Please login first.")
     st.stop()
 
-# Top row with "Track My Progress" and "Logout" buttons
 spacer_col, button_col1, button_col2 = st.columns([0.8, 0.1, 0.1])
 
 with button_col1:
@@ -77,7 +75,6 @@ with button_col2:
 st.title("📍 Career GPS: Your Personalized Career Roadmap")
 st.markdown("Welcome! Let's build your custom career roadmap step by step.")
 
-# Section 1: Upload Resume or Enter Skills
 st.header("Step 1: Tell us about your background")
 option = st.radio("How would you like to input your background?", ["Type it manually", "Upload Resume"])
 
@@ -93,11 +90,9 @@ elif option == "Upload Resume":
     if uploaded_file:
         user_info = uploaded_file.read().decode("utf-8", errors="ignore")
 
-# Section 2: Career Goal
 st.header("Step 2: Choose your career goal")
 career_goal = st.text_input("What do you want to become?", placeholder="E.g., Data Analyst")
 
-# Generate Button
 if st.button("🚀 Generate My Roadmap"):
     if user_info and career_goal:
         with st.spinner("Generating your personalized roadmap..."):
@@ -107,5 +102,4 @@ if st.button("🚀 Generate My Roadmap"):
     else:
         st.warning("Please provide both your background and a career goal.")
 
-# Footer
 st.markdown("---")
