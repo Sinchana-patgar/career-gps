@@ -46,7 +46,7 @@ At the end, include a **Final Milestone** titled
 Avoid generic or robotic tone. Be helpful, uplifting, and practical.
 """
     response = client.chat.completions.create(
-    model="mistralai/mistral-7b-instruct:free",
+    model="openrouter/free",
     messages=[
         {"role": "system", "content": "You are a professional career coach helping students build personalized learning roadmaps."},
         {"role": "user", "content": prompt}
